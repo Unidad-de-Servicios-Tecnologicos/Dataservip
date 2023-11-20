@@ -1,0 +1,5 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="20dp" /> <!-- Cambia el valor para ajustar el redondeo -->
+    <solid android:color="@color/morado" /> <!-- Cambia tu_color por el color que desees -->
+</shape>
