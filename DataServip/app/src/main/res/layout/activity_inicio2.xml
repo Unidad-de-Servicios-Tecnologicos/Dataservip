@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".inicio2">
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -18,6 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.383"
         app:srcCompat="@drawable/logo2" />
+
+
 
     <TextView
         android:id="@+id/textView"
@@ -37,10 +38,14 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="157dp"
-        android:layout_height="52dp"
+        android:layout_width="303dp"
+        android:layout_height="46dp"
         android:layout_marginTop="20dp"
-        android:text="Consultar"
+        android:backgroundTint="@color/morado"
+        android:onClick="irAActividadDos"
+        android:text="Empezar"
+        android:textSize="20dp"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
