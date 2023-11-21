@@ -7,138 +7,6 @@
     android:orientation="vertical"
     android:background="@color/blue">
 
-
-    <TextView
-        android:id="@+id/numeroPlaca9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="Activo"
-        android:textColor="@color/green"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/revisionTecnicoMecanica"
-        app:layout_constraintTop_toBottomOf="@+id/numeroPlaca8" />
-
-    <TextView
-        android:id="@+id/numeroPlaca10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="Activo"
-        android:textColor="@color/green"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/tarjetaOperacion"
-        app:layout_constraintTop_toBottomOf="@+id/numeroPlaca9" />
-
-    <TextView
-        android:id="@+id/numeroPlaca11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="Activo"
-        android:textColor="@color/green"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/soat"
-        app:layout_constraintTop_toBottomOf="@+id/numeroPlaca10" />
-
-    <TextView
-        android:id="@+id/numeroPlaca12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="Activo"
-        android:textColor="@color/green"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/seguroRce"
-        app:layout_constraintTop_toBottomOf="@+id/numeroPlaca11" />
-
-    <TextView
-        android:id="@+id/numeroPlaca8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="16dp"
-        android:text="Activo"
-        android:textColor="@color/green"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/seguroRcc"
-        app:layout_constraintTop_toBottomOf="@+id/estadoDocumentos" />
-
-    <TextView
-        android:id="@+id/numeroPlaca6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="Activo"
-        android:textColor="@color/green"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/estado"
-        app:layout_constraintTop_toBottomOf="@+id/numeroPlaca5" />
-
-    <TextView
-        android:id="@+id/numeroPlaca5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="7453521"
-        android:textColor="@color/white"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/empresaTelefonos"
-        app:layout_constraintTop_toBottomOf="@+id/numeroPlaca4" />
-
-    <TextView
-        android:id="@+id/numeroPlaca4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="Calle 13 # 23 - 30"
-        android:textColor="@color/white"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/empresaDireccion"
-        app:layout_constraintTop_toBottomOf="@+id/eRazonSocial" />
-
-    <TextView
-        android:id="@+id/eRazonSocial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FLOTA EL FARO S.A"
-        android:textColor="@color/white"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/empresaRazonSocial"
-        app:layout_constraintTop_toBottomOf="@+id/numeroPlaca2" />
-
-    <TextView
-        android:id="@+id/numeroPlaca2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="17dp"
-        android:text="1136"
-        android:textColor="@color/white"
-        android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/interno"
-        app:layout_constraintTop_toBottomOf="@+id/img" />
-
     <TextView
         android:id="@+id/placa"
         android:layout_width="wrap_content"
@@ -167,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/img"
+        android:id="@+id/imgvehiculo"
         android:layout_width="220dp"
         android:layout_height="158dp"
         android:layout_marginStart="16dp"
@@ -190,7 +58,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img" />
+        app:layout_constraintTop_toBottomOf="@+id/imgvehiculo" />
+
+    <TextView
+        android:id="@+id/numeroInterno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="17dp"
+        android:text="1136"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/interno"
+        app:layout_constraintTop_toBottomOf="@+id/imgvehiculo" />
 
     <TextView
         android:id="@+id/empresaRazonSocial"
@@ -206,6 +88,18 @@
         app:layout_constraintTop_toBottomOf="@+id/interno" />
 
     <TextView
+        android:id="@+id/eRazonSocial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FLOTA EL FARO S.A"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/empresaRazonSocial"
+        app:layout_constraintTop_toBottomOf="@+id/numeroInterno" />
+
+    <TextView
         android:id="@+id/empresaDireccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -217,6 +111,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/empresaRazonSocial" />
+
+    <TextView
+        android:id="@+id/direccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="Calle 13 # 23 - 30"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/empresaDireccion"
+        app:layout_constraintTop_toBottomOf="@+id/eRazonSocial" />
 
     <TextView
         android:id="@+id/empresaTelefonos"
@@ -232,6 +139,19 @@
         app:layout_constraintTop_toBottomOf="@+id/empresaDireccion" />
 
     <TextView
+        android:id="@+id/telefonos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="7453521"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/empresaTelefonos"
+        app:layout_constraintTop_toBottomOf="@+id/direccion" />
+
+    <TextView
         android:id="@+id/estado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -242,6 +162,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/empresaTelefonos" />
+
+    <TextView
+        android:id="@+id/estadoConductor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="Activo"
+        android:textColor="@color/green"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/estado"
+        app:layout_constraintTop_toBottomOf="@+id/telefonos" />
 
     <TextView
         android:id="@+id/estadoDocumentos"
@@ -272,6 +205,20 @@
         app:layout_constraintTop_toBottomOf="@+id/estadoDocumentos" />
 
     <TextView
+        android:id="@+id/segurorcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="16dp"
+        android:text="Activo"
+        android:textColor="@color/green"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/seguroRcc"
+        app:layout_constraintTop_toBottomOf="@+id/estadoDocumentos" />
+
+    <TextView
         android:id="@+id/revisionTecnicoMecanica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -285,7 +232,20 @@
         app:layout_constraintTop_toBottomOf="@+id/seguroRcc" />
 
     <TextView
-        android:id="@+id/tarjetaOperacion"
+        android:id="@+id/tecnicoMecanica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="Activo"
+        android:textColor="@color/green"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/revisionTecnicoMecanica"
+        app:layout_constraintTop_toBottomOf="@+id/segurorcc" />
+
+    <TextView
+        android:id="@+id/tarjetaO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -298,7 +258,20 @@
         app:layout_constraintTop_toBottomOf="@+id/revisionTecnicoMecanica" />
 
     <TextView
-        android:id="@+id/soat"
+        android:id="@+id/tarjetaoperacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="Activo"
+        android:textColor="@color/green"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tarjetaO"
+        app:layout_constraintTop_toBottomOf="@+id/tecnicoMecanica" />
+
+    <TextView
+        android:id="@+id/st"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -308,7 +281,20 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tarjetaOperacion" />
+        app:layout_constraintTop_toBottomOf="@+id/tarjetaO" />
+
+    <TextView
+        android:id="@+id/soat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="Activo"
+        android:textColor="@color/green"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/st"
+        app:layout_constraintTop_toBottomOf="@+id/tarjetaoperacion" />
 
     <TextView
         android:id="@+id/seguroRce"
@@ -321,6 +307,19 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/st" />
+
+    <TextView
+        android:id="@+id/segurorce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="Activo"
+        android:textColor="@color/green"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/seguroRce"
         app:layout_constraintTop_toBottomOf="@+id/soat" />
 
     <TextView
@@ -337,7 +336,7 @@
         app:layout_constraintTop_toBottomOf="@+id/seguroRce" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgconductores"
         android:layout_width="145dp"
         android:layout_height="163dp"
         android:layout_marginTop="16dp"
@@ -354,7 +353,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imgconductores"
         app:layout_constraintVertical_bias="0.8"
         android:src="@drawable/central_de_riesgos1" />
 
