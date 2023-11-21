@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int TIEMPO_DE_ESPERA = 2000;
+    private static final int TIEMPO_DE_ESPERA = 1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
