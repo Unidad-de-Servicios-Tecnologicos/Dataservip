@@ -3,4 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="morado">#353D8E</color>
+    <color name="blue">#35478F</color>
+    <color name="green">#5FE140</color>
 </resources>

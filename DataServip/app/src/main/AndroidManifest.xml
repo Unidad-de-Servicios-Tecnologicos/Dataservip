@@ -13,6 +13,9 @@
         android:theme="@style/Theme.DataServip"
         tools:targetApi="31">
         <activity
+            android:name=".Datos"
+            android:exported="false" />
+        <activity
             android:name=".consulta"
             android:exported="false" />
         <activity
