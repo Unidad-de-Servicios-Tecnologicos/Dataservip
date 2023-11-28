@@ -43,7 +43,7 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/morado"
         android:onClick="irAActividadDos"
-        android:text="Empezar"
+        android:text="Consultar"
         android:textSize="20dp"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
