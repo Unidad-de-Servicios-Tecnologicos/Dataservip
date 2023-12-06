@@ -1,19 +1,19 @@
 package com.example.dataservip;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputEditText;
 
-import org.json.JSONArray;
 
 public class consulta extends AppCompatActivity {
+
+    public Button consultar;
+    public TextInputEditText textconsultar;
+    public String respuesta = "", imagen = "";
+    public ModeloRetorno dataservip = new ModeloRetorno();
 
 
 
