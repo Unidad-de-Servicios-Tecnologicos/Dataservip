@@ -33,7 +33,7 @@ public class consultarApi {
                     modeloRetorno.setTipo_documento(dataservip.getTipo_documento());
                     modeloRetorno.setEstado(dataservip.getEstado());
                 } else {
-                    System.out.println("No existe");
+                    System.out.println("Mal");
                     System.out.println(call);
                 }
             } catch (Exception ex) {
@@ -43,7 +43,7 @@ public class consultarApi {
 
             @Override
             public void onFailure(Call<dataservip> call, Throwable t) {
-
+                System.out.println("Hola: " + t);
             }
         });
 

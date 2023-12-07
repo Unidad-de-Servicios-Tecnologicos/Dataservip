@@ -40,7 +40,6 @@ dependencies {
     implementation("androidx.navigation:navigation-ui:2.7.5")
     implementation("com.squareup.retrofit2:retrofit:2.4.0")
     implementation("com.squareup.retrofit2:converter-gson:2.4.0")
-    implementation("com.squared.picasso:picasso:2.8")
     implementation("com.google.code.gson:gson:2.8.9")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
