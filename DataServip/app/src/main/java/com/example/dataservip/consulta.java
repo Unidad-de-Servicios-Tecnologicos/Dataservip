@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.dataservip.modelos.Vehiculo;
 
 import retrofit2.Call;
@@ -15,9 +14,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class consulta extends AppCompatActivity {
-
     private EditText placaEditText;
     private Button consultarButton;
+    private ApiService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +27,8 @@ public class consulta extends AppCompatActivity {
         placaEditText = findViewById(R.id.txtplaca);
         consultarButton = findViewById(R.id.btnconsultar);
 
+        // Obtener la instancia de ApiService utilizando Retrofit
+        apiService = RetrofitClient.getClient();
 
         // Configurar el evento de clic del botón
         consultarButton.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +37,7 @@ public class consulta extends AppCompatActivity {
                 // Obtener la placa ingresada por el usuario
                 String placa = placaEditText.getText().toString();
 
-                // Validar que se haya ingresado una pla
+                // Validar que se haya ingresado una placa
                 if (placa.isEmpty()) {
                     Toast.makeText(consulta.this, "Ingresa una placa válida", Toast.LENGTH_SHORT).show();
                 } else {
@@ -48,22 +49,27 @@ public class consulta extends AppCompatActivity {
     }
 
     private void realizarConsulta(String placa) {
-        // Aquí podrías realizar la llamada a la API para obtener los datos del vehículo según la placa
-        // Puedes utilizar la clase ApiClient y el callback que definimos antes
+        // Aquí realizas la llamada a la API utilizando Retrofit
 
-        ApiClient apiClient = new ApiClient();
+        Call<Vehiculo> call = apiService.consultarVehiculo(placa);
 
-        apiClient.obtenerDatos(placa, new ApiCallback<Vehiculo>() {
+        call.enqueue(new Callback<Vehiculo>() {
             @Override
-            public void onSuccess(Vehiculo vehiculo) {
-                // Abrir la actividad de datos y pasar los datos del vehículo
-                abrirActividadDatos(vehiculo);
+            public void onResponse(Call<Vehiculo> call, Response<Vehiculo> response) {
+                if (response.isSuccessful()) {
+                    // Llamada exitosa, abres la actividad de datos y pasas los datos del vehículo
+                    Vehiculo vehiculo = response.body();
+                    abrirActividadDatos(vehiculo);
+                } else {
+                    // Llamada no exitosa, manejas el error y muestras un mensaje al usuario
+                    Toast.makeText(consulta.this, "Error en la respuesta de la API", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
-            public void onFailure(String mensajeError) {
-                // Manejar el error, mostrar un mensaje al usuario, etc.
-                Toast.makeText(consulta.this, "Error al obtener datos: " + mensajeError, Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<Vehiculo> call, Throwable t) {
+                // Fallo en la llamada, manejas el error y muestras un mensaje al usuario
+                Toast.makeText(consulta.this, "Error al realizar la llamada a la API", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -73,46 +79,44 @@ public class consulta extends AppCompatActivity {
         Intent intent = new Intent(consulta.this, Datos.class);
 
         // Puedes pasar los datos del vehículo como extras en el intent
-        // Aquí asumo que Vehiculo implementa Serializable, pero puedes utilizar Parcelable u otras opciones
         intent.putExtra("vehiculo", vehiculo);
 
         // Iniciar la actividad de datos
         startActivity(intent);
     }
 
-    static class ApiClient {
-
-        // Aquí debes tener una instancia de Retrofit configurada para tu API
+    public static class ApiClient {
         private ApiService apiService;
 
         // Constructor u otros métodos de inicialización según tus necesidades
+        public ApiClient() {
+            // Configurar Retrofit y obtener la instancia de ApiService
+            apiService = RetrofitClient.getClient();
+        }
 
         public void obtenerDatos(final ApiCallback<Vehiculo> callback) {
-            // Aquí haces la solicitud a la API utilizando Retrofit
-            Call<Vehiculo> call = apiService.consultarVehiculo();
+            // Utilizar Retrofit para realizar la llamada a la API
+            String placa = null;
+            Call<Vehiculo> call = apiService.consultarVehiculo(placa);
 
             call.enqueue(new Callback<Vehiculo>() {
                 @Override
                 public void onResponse(Call<Vehiculo> call, Response<Vehiculo> response) {
                     if (response.isSuccessful()) {
-                        // Llamada exitosa, llamas al método onSuccess del callback
+                        // Llamada exitosa, llamar al método onSuccess del callback
                         callback.onSuccess(response.body());
                     } else {
-                        // Llamada no exitosa, manejas el error y llamas al método onFailure del callback
+                        // Llamada no exitosa, manejar el error y llamar al método onFailure del callback
                         callback.onFailure("Error en la respuesta de la API");
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Vehiculo> call, Throwable t) {
-                    // Fallo en la llamada, manejas el error y llamas al método onFailure del callback
+                    // Fallo en la llamada, manejar el error y llamar al método onFailure del callback
                     callback.onFailure("Error al realizar la llamada a la API");
                 }
             });
-        }
-
-        public void obtenerDatos(String placa, ApiCallback<Vehiculo> vehiculoApiCallback) {
-
         }
     }
 }

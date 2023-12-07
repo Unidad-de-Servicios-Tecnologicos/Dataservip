@@ -4,10 +4,8 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ApiService {
-    @GET("appdataservip/json_vehiculo_qr.php")
-    Call<Vehiculo> consultarVehiculo();
-//Vehiculo
-    ApiService create(Class<ApiService> apiServiceClass);
+    @GET("json_vehiculo_qr.php")
+    Call<Vehiculo> consultarVehiculo(String placa);
 }
 
 
