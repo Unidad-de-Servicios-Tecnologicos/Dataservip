@@ -2,12 +2,16 @@ package com.example.dataservip;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.dataservip.modelos.Vehiculo;
+import com.google.gson.Gson;
+import com.example.dataservip.ApiCallback;
+
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,6 +27,7 @@ public class consulta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta);
 
+
         // Inicializar vistas (asegúrate de que los IDs coincidan)
         placaEditText = findViewById(R.id.txtplaca);
         consultarButton = findViewById(R.id.btnconsultar);
@@ -33,19 +38,25 @@ public class consulta extends AppCompatActivity {
         // Configurar el evento de clic del botón
         consultarButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 // Obtener la placa ingresada por el usuario
                 String placa = placaEditText.getText().toString();
 
                 // Validar que se haya ingresado una placa
                 if (placa.isEmpty()) {
-                    Toast.makeText(consulta.this, "Ingresa una placa válida", Toast.LENGTH_SHORT).show();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(consulta.this, "Ingresa una placa válida", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } else {
                     // Realizar la consulta a la API con la placa ingresada
                     realizarConsulta(placa);
                 }
             }
         });
+
     }
 
     private void realizarConsulta(String placa) {
@@ -85,8 +96,11 @@ public class consulta extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //APICLIENT APARTADO
+
     public static class ApiClient {
         private ApiService apiService;
+
 
         // Constructor u otros métodos de inicialización según tus necesidades
         public ApiClient() {
@@ -94,17 +108,25 @@ public class consulta extends AppCompatActivity {
             apiService = RetrofitClient.getClient();
         }
 
-        public void obtenerDatos(final ApiCallback<Vehiculo> callback) {
+        public void obtenerDatos(String placa, final ApiCallback<Vehiculo> callback) {
             // Utilizar Retrofit para realizar la llamada a la API
-            String placa = null;
             Call<Vehiculo> call = apiService.consultarVehiculo(placa);
 
             call.enqueue(new Callback<Vehiculo>() {
                 @Override
                 public void onResponse(Call<Vehiculo> call, Response<Vehiculo> response) {
                     if (response.isSuccessful()) {
-                        // Llamada exitosa, llamar al método onSuccess del callback
-                        callback.onSuccess(response.body());
+                        Vehiculo vehiculo = response.body();
+                        if (vehiculo != null) {
+                            // Imprimir detalles específicos de la respuesta para depurar
+                            // Dentro del método onSuccess
+                            Log.d("API_RESPONSE", "JSON de respuesta: " + new Gson().toJson(response.body()));
+                            Log.d("API_RESPONSE", "Placa: " + vehiculo.getPlaca());
+                            Log.d("API_RESPONSE", "Interno: " + vehiculo.getInterno());
+                            // Resto del código...
+                        } else {
+                            Log.d("API_RESPONSE", "La respuesta del servidor es nula");
+                        }
                     } else {
                         // Llamada no exitosa, manejar el error y llamar al método onFailure del callback
                         callback.onFailure("Error en la respuesta de la API");

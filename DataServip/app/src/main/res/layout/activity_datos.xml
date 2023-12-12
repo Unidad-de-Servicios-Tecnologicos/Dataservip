@@ -42,7 +42,7 @@
                 android:layout_marginStart="250dp"
                 android:layout_marginTop="-20dp"
                 android:layout_marginEnd="150dp"
-                android:text="SQD 433"
+                android:text="S"
                 android:textColor="@color/white"
                 android:textSize="16dp"
                 android:textStyle="bold"

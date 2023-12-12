@@ -57,29 +57,41 @@ public class Datos extends AppCompatActivity {
         consulta.ApiClient apiClient = new consulta.ApiClient();
 
         // Hacer la solicitud a la API (esto es solo un ejemplo, ajusta según tus necesidades)
-        apiClient.obtenerDatos(new ApiCallback<Vehiculo>() {
+        apiClient.obtenerDatos("FXU925", new ApiCallback<Vehiculo>() {
             @Override
             public void onSuccess(Vehiculo vehiculo) {
-                // Llenar los TextView e ImageView con los datos del vehículo y conductor
-                placaTextView.setText(vehiculo.getPlaca());
-                internoTextView.setText(vehiculo.getInterno());
-                empresaTextView.setText(vehiculo.getRazonSocialEmpresa());
-                direccionTextView.setText(vehiculo.getDireccionEmpresa());
-                telefonoTextView.setText(vehiculo.getTelefonoEmpresa());
-                estadoTextView.setText(vehiculo.getEstado());
+                try {
+                    if (vehiculo != null && vehiculo.getConductores() != null && !vehiculo.getConductores().isEmpty()) {
+                        // Llenar los TextView e ImageView con los datos del vehículo y conductor
+                        placaTextView.setText(vehiculo.getPlaca());
+                        internoTextView.setText(vehiculo.getInterno());
+                        empresaTextView.setText(vehiculo.getRazonSocialEmpresa());
+                        direccionTextView.setText(vehiculo.getDireccionEmpresa());
+                        telefonoTextView.setText(vehiculo.getTelefonoEmpresa());
+                        estadoTextView.setText(vehiculo.getEstado());
 
-                // Mostrar la imagen del conductor con Picasso
-                cargarImagenDesdeUrl(vehiculo.getConductores().get(0).getFoto(), conductorImageView);
+                        // Mostrar la imagen del conductor con Picasso
+                        cargarImagenDesdeUrl(vehiculo.getConductores().get(0).getFoto(), conductorImageView);
 
-                // Llenar los datos del conductor
-                Conductor conductor = vehiculo.getConductores().get(0);
-                nombreConductorTextView.setText(conductor.getNombre());
-                licenciaTextView.setText(conductor.getCategoriaLicencia());
-                vigenciaTextView.setText(conductor.getVencimientoLicencia());
-                pensionesTextView.setText(conductor.getPensiones());
-                grupoSanguineoTextView.setText(conductor.getGrupoSanguineo());
-                epsTextView.setText(conductor.getEps());
-                arlTextView.setText(conductor.getArl());
+                        // Llenar los datos del conductor
+                        Conductor conductor = vehiculo.getConductores().get(0);
+                        nombreConductorTextView.setText(conductor.getNombre());
+                        licenciaTextView.setText(conductor.getCategoriaLicencia());
+                        vigenciaTextView.setText(conductor.getVencimientoLicencia());
+                        pensionesTextView.setText(conductor.getPensiones());
+                        grupoSanguineoTextView.setText(conductor.getGrupoSanguineo());
+                        epsTextView.setText(conductor.getEps());
+                        arlTextView.setText(conductor.getArl());
+                    } else {
+                        // Manejar el caso en que los datos no sean como se esperaba
+                        // Puede mostrar un mensaje de error o realizar otras acciones necesarias
+                        Toast.makeText(Datos.this, "Datos del vehículo o conductor incorrectos", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    // Manejar la excepción según sea necesario
+                    Toast.makeText(Datos.this, "Error inesperado al procesar los datos", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override

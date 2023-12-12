@@ -1,12 +1,15 @@
 package com.example.dataservip;
+
 import com.example.dataservip.modelos.Vehiculo;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface ApiService {
     @GET("json_vehiculo_qr.php")
-    Call<Vehiculo> consultarVehiculo(String placa);
+    Call<Vehiculo> consultarVehiculo(@Query("placa") String placa);
 }
+
 
 
 //import retrofit2.Call;
